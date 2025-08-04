@@ -57,7 +57,7 @@ SELECT
     skills.skill_id,
     skills.skills,
     COUNT(skills_to_job.skill_id) AS demand_count,
-    AVG(job_postings_fact.salary_year_avg) AS avg_salary
+    ROUND(AVG(job_postings_fact.salary_year_avg)) AS avg_salary
 FROM
     job_postings_fact
     INNER JOIN skills_job_dim AS skills_to_job ON job_postings_fact.job_id = skills_to_job.job_id
